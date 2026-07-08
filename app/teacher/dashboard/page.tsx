@@ -25,7 +25,9 @@ export default async function TeacherDashboardPage() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-3xl font-bold text-gray-800">Mis duelos</h1>
-            <p className="text-sm text-gray-500">{userData.user.email}</p>
+            <p className="text-sm text-gray-500">
+              {(userData.user.user_metadata as { name?: string } | undefined)?.name ?? "Profesor"}
+            </p>
           </div>
           <form action={signOutAction}>
             <button type="submit" className="text-sm text-gray-500 hover:text-gray-800 underline">
